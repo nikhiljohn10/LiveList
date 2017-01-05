@@ -1,0 +1,30 @@
+.p-list .pure-table {
+  width: 100%;
+}
+
+.pure-form, .pure-table {
+  margin-top: 20px;
+}
+
+.textcenter {
+  text-align: center;
+}
+
+.pure-table-odd {
+  background: #DDD;
+}
+
+.icon {
+  text-align: center;
+  width: 2em;
+  height: 2em;
+  padding: 0px;
+}
+
+.error {
+  color: rgb(202, 60, 60);
+  border-radius: 4px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  display: inline-block;
+  padding: .5em 1em;
+}

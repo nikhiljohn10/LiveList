@@ -1,0 +1,58 @@
+<!-- <base href="/settings"> -->
+<div class="header">
+  <h1>Settings</h1>
+  <h2>Find best sttings here <small>(I'm too lazy to correct the spelling of settings)</small> :P</h2>
+</div>
+
+<div class="content">
+  <div class="pure-g">
+    <div class="pure-u-1-2 pure-u-md-1-2" ng-controller="cSettings">
+      <form name="categoriesForm" class="pure-form pure-form-aligned" ng-submit="addCategory(categoriesForm.$valid)" novalidate>
+        <fieldset>
+          <div class="pure-control-group">
+            <h4>Add new item to list</h4>
+          </div>
+          <div class="pure-control-group">
+            <input name="item" type="text" placeholder="Category" ng-model="formData.value" ng-minlength="2" ng-required="true">
+            <button type="submit" class="pure-button pure-button-primary" ng-disabled="categoriesForm.$invalid">Add</button>
+          </div>
+          <div>
+            <p ng-show="categoriesForm.item.$invalid && !categoriesForm.item.$pristine" class="error">Please enter a name</p>
+            <p ng-show="error" class="error">{{error}}</p>
+          </div>
+        </fieldset>
+      </form>
+      <div class="setting-categories-list">
+        <table class="pure-table pure-table-striped">
+          <thead>
+            <tr>
+              <th>Categories</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="x in categories track by $index">
+              <td> <input type="button" style="cursor:pointer;" ng-click='removeCategory(x.id);' value="x" /> &nbsp;{{x.itemName}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="pure-u-1-2 pure-u-md-1-2" ng-controller="uSettings">
+      <h3>User List</h3>
+      <table class="pure-table pure-table-striped">
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="x in users">
+            <td>{{x.username}}</td>
+            <td>{{x.email}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
