@@ -8,6 +8,10 @@ module.exports = {
       type: 'string',
       required: true
     },
+    link: {
+      type: 'string',
+      defaultTo: "#"
+    },
     currentPrice: {
       type: 'integer',
       required: true
