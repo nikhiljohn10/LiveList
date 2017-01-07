@@ -1,7 +1,7 @@
 var cssFilesToInject = [
   '!styles/layouts/*.css',
-  'styles/main.css'
-  'styles/**/*.css',
+  'styles/main.css',
+  'styles/**/*.css'
 ];
 var jsFilesToInject = [
 
