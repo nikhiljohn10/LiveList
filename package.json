@@ -1,11 +1,10 @@
 {
   "name": "LiveList",
   "private": true,
-  "version": "0.0.0",
-  "description": "a Sails application",
-  "keywords": [],
+  "version": "0.0.2",
+  "description": "a Sails application to list amazon products",
+  "keywords": ["sails","amazon","list"],
   "dependencies": {
-    "angular-route": "^1.6.1",
     "ejs": "2.3.4",
     "grunt": "1.0.1",
     "grunt-contrib-clean": "1.0.0",
@@ -27,13 +26,13 @@
   },
   "scripts": {
     "debug": "node debug app.js",
-    "start": "nodemon app.js"
+    "start": "pm2 startOrReload ecosystem.json --env production"
   },
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/desk1/LiveList.git"
+    "url": "git://github.com/nikhiljohn10/LiveList"
   },
   "author": "Nikz Jon",
-  "license": "BSD"
+  "license": "MIT license"
 }

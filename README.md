@@ -1,12 +1,14 @@
-# LiveList
+# [LiveList](https://ll.nikz.in)
 
 a [Sails](http://sailsjs.org) application to list amazon produst prices
 
-*Note:*
+###How to run the app in a unix based system:
+
+Install sails by `sudo npm install -g sails@0.12`.
 
 Use `npm install` to get all dependencies.
 
-If you have nodemon, use `npm start`, else use `sails lift`.
+For starting in production, use `npm start`. For development purpose, use `sails lift`.
 
 Create `local.js` in `config` folder and add the following code by replacing your own database info.
 
@@ -14,13 +16,15 @@ Create `local.js` in `config` folder and add the following code by replacing you
 module.exports = {
   connections: {
     myDataStore: {
-      adapter: 'sails-postgresql', // check sails documentation for right adapter
+      adapter: 'sails-postgresql',
       host: 'localhost',
-      user: 'YOUR_DATABASE_USERNAME',
-      password: 'YOUR_DATABASE_PASSWORD',
-      database: 'YOUR_DATABASE_NAME',
-      port: 'YOUR_DATABASE_PORT'
+      user: 'USERNAME',
+      password: 'PASSWORD',
+      database: 'DATABASE',
+      port: 'PORT'
     }
   }
 };
 ```
+
+Start the app in dev mode once.In `config/models.js`, set `migrate: 'safe'` and then we can start app in production mode.

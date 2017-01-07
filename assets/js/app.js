@@ -17,7 +17,6 @@ liveListApp.config(['$routeProvider',
 
 liveListApp.controller('menuCtrl', function($scope, $location) {
   var path = "/" + window.location.pathname.split('/')[1];
-  console.log(path);
   if (path == '/') {
     $scope.menuHome = "pure-menu-selected";
     $scope.menuSettings = "";

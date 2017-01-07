@@ -1,13 +1,5 @@
-/**
- * ProductController
- *
- * @description :: Server-side logic for managing products
- * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
- */
-
 module.exports = {
   findAll: function(req, res) {
-    // Product.find().populate('priceList').exec(function(err, result) {
     Product.find().exec(function(err, result) {
       if (err) {
         return res.serverError(err);
