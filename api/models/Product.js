@@ -9,8 +9,7 @@ module.exports = {
       required: true
     },
     link: {
-      type: 'string',
-      defaultTo: "#"
+      type: 'string'
     },
     ff: {
       type: 'boolean',
