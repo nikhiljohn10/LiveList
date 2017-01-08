@@ -12,6 +12,10 @@ module.exports = {
       type: 'string',
       defaultTo: "#"
     },
+    ff: {
+      type: 'boolean',
+      defaultTo: "false"
+    },
     currentPrice: {
       type: 'integer',
       required: true

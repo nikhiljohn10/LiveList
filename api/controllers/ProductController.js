@@ -19,7 +19,9 @@ module.exports = {
     var values = {
       name: (req.body.name) ? req.body.name : undefined,
       category: (req.body.category) ? req.body.category : undefined,
-      currentPrice: (req.body.currentPrice) ? req.body.currentPrice : undefined
+      link: (req.body.link) ? req.body.link : null,
+      ff: (req.body.ff == 'true') ? true : false,
+      currentPrice: (req.body.currentPrice) ? req.body.currentPrice : 0
     };
     Product.create(values).exec(function(err, resp) {
       if (err) return res.serverError(err);

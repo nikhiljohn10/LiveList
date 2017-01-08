@@ -44,6 +44,8 @@ liveListApp.controller('productCtrl', ['$scope', 'ProductService', 'CategoryServ
         $scope.products.push({
           name: $scope.formData.name,
           category: $scope.formData.category,
+          link: $scope.formData.link,
+          ff: $scope.formData.ff,
           currentPrice: $scope.formData.currentPrice,
           updatedAt: new Date()
         });

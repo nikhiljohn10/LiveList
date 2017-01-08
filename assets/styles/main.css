@@ -39,3 +39,76 @@
   margin-left: 43px;
   padding-bottom: 0.6em;
 }
+
+.product-form input,
+.product-form select,
+.product-form button {
+  height: 2.6em;
+  margin-bottom: 0.5em;
+}
+
+
+.fulfilled{
+    display: none;
+    position: absolute;
+}
+
+.fulfilled, .fulfilled+label{
+    vertical-align: middle;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.fulfilled+label{
+    display: inline-block;
+    width: 100%;
+    background: url(../images/aff.png) no-repeat 25% center;
+    position: relative;
+}
+
+.fulfilled+label:after{
+    content: '';
+    background: #fff;
+    border: 2px solid #ddd;
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    padding: 2px;
+    border-radius:50%;
+    margin-right: 10px;
+    margin-left: 50%;
+    text-align: center;
+}
+@media screen and (max-width: 56em){
+
+    .fulfilled+label:after{
+
+        margin-left:80px;
+    }
+}
+@media screen and (max-width: 64em){
+
+    .fulfilled+label:after{
+
+        margin-left:55%;
+    }
+}
+@media screen and (max-width: 48em){
+
+    .fulfilled+label{
+        background-position: 0.5em center;
+    }
+
+    .fulfilled+label:after{
+        margin-left: 80px;
+    }
+}
+
+.fulfilled:checked + label:after {
+    background: #444;
+}
+
+.fulfilled:focus + label{
+  outline: 1px solid #ddd;
+}
