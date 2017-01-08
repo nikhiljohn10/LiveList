@@ -1,15 +1,9 @@
 var cssFilesToInject = [
-  '!styles/layouts/*.css',
-  'styles/main.css',
-  'styles/**/*.css'
+  'styles/main.css'
 ];
 var jsFilesToInject = [
-
   'js/dependencies/sails.io.js',
-  'js/ui.js',
-  'js/dependencies/**/*.js',
-  '!js/app.js',
-  'js/**/*.js'
+  'js/ui.js'
 ];
 var templateFilesToInject = [
   'templates/**/*.html'
