@@ -68,7 +68,7 @@
         <tbody>
           <tr ng-repeat="x in products track by $index">
             <td>{{$index+1}}</td>
-            <td><a href="{{x.link}}">{{x.name}}</a> <img ng-if="x.ff" src="images/aff.png" alt="(FF)"></td>
+            <td><a href="{{x.link}}" target="blank">{{x.name}}</a> <img ng-if="x.ff" src="images/aff.png" alt="(FF)"></td>
             <td>{{x.category}}</td>
             <td>{{x.currentPrice | currency : "INR ": 2}}</td>
             <td>{{x.updatedAt | date }}</td>
