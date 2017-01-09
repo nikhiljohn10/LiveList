@@ -67,15 +67,19 @@ liveListApp.controller('productCtrl', ['$scope', 'ProductService', 'CategoryServ
       return e.id == pid;
     });
     var data = $scope.products[index];
-    var newPrice = parseFloat(prompt("Enter new price:"));
-    if (!newPrice) alert("Error: Invalid amount.");
-    else {
-      data.currentPrice = newPrice;
-      ProductService.updatePrice(pid, newPrice).then(function(response) {
-        $scope.products.splice(index, 1);
-        $scope.products.splice(index, 0, data);
-      });
-    }
+    ProductService.updatePrice(pid).then(function(response) {
+      $scope.products.splice(index, 1);
+      $scope.products.splice(index, 0, response);
+    });
+    // var newPrice = parseFloat(prompt("Enter new price:"));
+    // if (!newPrice) alert("Error: Invalid amount.");
+    // else {
+    //   data.currentPrice = newPrice;
+    //   ProductService.updatePrice(pid, newPrice).then(function(response) {
+    //     $scope.products.splice(index, 1);
+    //     $scope.products.splice(index, 0, data);
+    //   });
+    // }
   };
   $scope.removeProduct = function(cid) {
     var index = $scope.products.findIndex(function(e) {
@@ -233,14 +237,13 @@ liveListApp.factory('ProductService', function($http, $q) {
       });
       return defer.promise;
     },
-    updatePrice: function(id, price) {
+    updatePrice: function(id) {
       var defer = $q.defer();
       $http({
         method: 'POST',
         url: '/product/update',
         data: {
-          id: id,
-          currentPrice: price
+          id: id
         }
       }).then(function(response) {
         defer.resolve(response);

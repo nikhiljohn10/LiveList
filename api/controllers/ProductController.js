@@ -36,20 +36,32 @@ module.exports = {
   },
   update: function(req, res) {
     var pid = (req.body.id) ? req.body.id : undefined;
-    var currentPrice = (req.body.currentPrice) ? req.body.currentPrice : undefined;
-    Product.update({
+    Product.find({
       id: pid
-    }, {
-      currentPrice: currentPrice
-    }).exec(function(err, resp) {
+    }).exec(function(err, result) {
       if (err) return res.serverError(err);
-      Price.create({
-        product: pid,
-        amount: currentPrice
-      }).exec(function(err1, resp1) {
-        if (err1) return res.serverError(err1);
-        return res.ok();
-      });
+      var data = result;
+      AmazonService.getCurrentPrice(data.link)
+        .then(function(currentPrice) {
+          data.currentPrice = currentPrice;
+          Product.update({
+            id: pid
+          }, {
+            currentPrice: currentPrice
+          }).exec(function(err, resp) {
+            if (err) return res.serverError(err);
+            Price.create({
+              product: pid,
+              amount: currentPrice
+            }).exec(function(err1, resp1) {
+              if (err1) return res.serverError(err1);
+              return res.json(data);
+            });
+          });
+        })
+        .catch(function(err) {
+          if (err) return res.serverError(err);
+        });
     });
   },
   remove: function(req, res) {
