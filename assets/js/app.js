@@ -67,9 +67,13 @@ liveListApp.controller('productCtrl', ['$scope', 'ProductService', 'CategoryServ
       return e.id == pid;
     });
     var data = $scope.products[index];
+    console.log("Client index:", index);
+    console.log("Client pid:", pid);
+    console.log("Client data(before):", data);
     ProductService.updatePrice(pid).then(function(response) {
       $scope.products.splice(index, 1);
       $scope.products.splice(index, 0, response);
+      console.log("Client data(after):", response);
     });
     // var newPrice = parseFloat(prompt("Enter new price:"));
     // if (!newPrice) alert("Error: Invalid amount.");

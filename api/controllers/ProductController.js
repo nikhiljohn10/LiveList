@@ -46,7 +46,6 @@ module.exports = {
       AmazonService.getCurrentPrice(data.link)
         .then(function(currentPrice) {
           data.currentPrice = currentPrice;
-          console.log("Server data(after fetch):", data);
           Product.update({
             id: pid
           }, {
@@ -58,6 +57,7 @@ module.exports = {
               amount: currentPrice
             }).exec(function(err1, resp1) {
               if (err1) return res.serverError(err1);
+              console.log("Server data(to send):", data);
               return res.json(data);
             });
           });
