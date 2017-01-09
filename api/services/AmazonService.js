@@ -1,3 +1,4 @@
+var jsdom = require('jsdom');
 module.exports = {
   getCurrentPrice: function(link) {
     return new Promise(function(resolve, reject) {
