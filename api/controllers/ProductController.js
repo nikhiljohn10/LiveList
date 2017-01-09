@@ -1,4 +1,3 @@
-var jsdom = require('jsdom');
 module.exports = {
   findAll: function(req, res) {
     Product.find().exec(function(err, result) {
@@ -37,17 +36,17 @@ module.exports = {
   },
   update: function(req, res) {
     var pid = (req.body.id) ? req.body.id : undefined;
-    console.log(pid);
+    console.log("Server pid:", pid);
     Product.find({
       id: pid
     }).exec(function(err, result) {
       if (err) return res.serverError(err);
-      var data = result;
-      console.log(data);
-      console.log(data.link);
-      getCurrentPrice(data.link)
+      var data = result[0];
+      console.log("Server data:", data);
+      AmazonService.getCurrentPrice(data.link)
         .then(function(currentPrice) {
           data.currentPrice = currentPrice;
+          console.log("Server data(after fetch):", data);
           Product.update({
             id: pid
           }, {
@@ -83,16 +82,3 @@ module.exports = {
     });
   }
 };
-
-var getCurrentPrice = function(link) {
-  return new Promise(function(resolve, reject) {
-    jsdom.env({
-      url: link,
-      done: function(err, window) {
-        var $ = require("jquery")(window);
-        resolve(parseFloat($('#priceblock_ourprice').text().trim().replace(/,/g, '')));
-        window.close();
-      }
-    });
-  });
-}

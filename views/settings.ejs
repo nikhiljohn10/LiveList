@@ -31,7 +31,7 @@
           </thead>
           <tbody>
             <tr ng-repeat="x in categories track by $index">
-              <td> <input type="button" style="cursor:pointer;" ng-click='removeCategory(x.id);' value="x" /> &nbsp;{{x.itemName}}</td>
+              <td> <input type="button" style="cursor:pointer;" ng-click='removeCategory(x.id);' value="x" /> &nbsp;{{x.itemName | uppercase }}</td>
             </tr>
           </tbody>
         </table>
