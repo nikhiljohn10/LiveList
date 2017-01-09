@@ -37,11 +37,13 @@ module.exports = {
   },
   update: function(req, res) {
     var pid = (req.body.id) ? req.body.id : undefined;
+    console.log(pid);
     Product.find({
       id: pid
     }).exec(function(err, result) {
       if (err) return res.serverError(err);
       var data = result;
+      console.log(data);
       console.log(data.link);
       getCurrentPrice(data.link)
         .then(function(currentPrice) {

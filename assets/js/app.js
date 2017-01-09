@@ -239,6 +239,7 @@ liveListApp.factory('ProductService', function($http, $q) {
     },
     updatePrice: function(id) {
       var defer = $q.defer();
+      console.log(id);
       $http({
         method: 'POST',
         url: '/product/update',
