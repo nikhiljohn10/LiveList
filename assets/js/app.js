@@ -42,6 +42,7 @@ liveListApp.controller('productCtrl', ['$scope', 'ProductService', 'CategoryServ
     if (isValid) {
       ProductService.addProduct($scope.formData).then(function(response) {
         $scope.products.push({
+          id: $scope.formData.id,
           name: $scope.formData.name,
           category: $scope.formData.category,
           link: $scope.formData.link,
@@ -72,8 +73,8 @@ liveListApp.controller('productCtrl', ['$scope', 'ProductService', 'CategoryServ
     console.log("Client data(before):", data);
     ProductService.updatePrice(pid).then(function(response) {
       $scope.products.splice(index, 1);
-      $scope.products.splice(index, 0, response);
-      console.log("Client data(after):", response);
+      $scope.products.splice(index, 0, response.data);
+      console.log("Client data(after):", response.data);
     });
     // var newPrice = parseFloat(prompt("Enter new price:"));
     // if (!newPrice) alert("Error: Invalid amount.");
