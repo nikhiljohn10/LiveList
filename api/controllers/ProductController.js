@@ -30,7 +30,10 @@ module.exports = {
         amount: values.currentPrice
       }).exec(function(err1, resp1) {
         if (err1) return res.serverError(err1);
-        return res.ok();
+        return res.json({
+          id: resp.id,
+          updatedAt: resp.updatedAt
+        });
       });
     });
   },
