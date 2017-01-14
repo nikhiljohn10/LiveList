@@ -39,13 +39,11 @@ module.exports = {
   },
   update: function(req, res) {
     var pid = (req.body.id) ? req.body.id : undefined;
-    console.log("Server pid:", pid);
     Product.find({
       id: pid
     }).exec(function(err, result) {
       if (err) return res.serverError(err);
       var data = result[0];
-      console.log("Server data:", data);
       AmazonService.getCurrentPrice(data.link)
         .then(function(currentPrice) {
           data.currentPrice = currentPrice;
@@ -60,7 +58,6 @@ module.exports = {
               amount: currentPrice
             }).exec(function(err1, resp1) {
               if (err1) return res.serverError(err1);
-              console.log("Server data(to send):", data);
               return res.json(data);
             });
           });
