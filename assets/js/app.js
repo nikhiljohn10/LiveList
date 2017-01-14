@@ -41,6 +41,7 @@ liveListApp.controller('productCtrl', ['$scope', 'ProductService', 'CategoryServ
   $scope.addProduct = function(isValid) {
     if (isValid) {
       ProductService.addProduct($scope.formData).then(function(response) {
+        console.log($scope.formData);
         $scope.products.push({
           id: response.data.id,
           name: $scope.formData.name,
