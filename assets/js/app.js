@@ -32,6 +32,7 @@ liveListApp.controller('productCtrl', ['$scope', 'ProductService', 'CategoryServ
   $scope.formData = {};
   $scope.categories = [];
   $scope.products = [];
+  $scope.loading = false;
   CategoryService.getCategories().then(function(response) {
     $scope.categories = response;
   });
