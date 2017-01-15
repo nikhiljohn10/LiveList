@@ -31,6 +31,6 @@ Start the app in dev mode once.In `config/models.js`, set `migrate: 'safe'` and 
 
 ### TODO
 
-- (Graph plotting)[https://github.com/nikhiljohn10/LiveList/projects/1]
+- [Graph plotting](https://github.com/nikhiljohn10/LiveList/projects/1)
 - Price Analyser
 - Multiuser Interface
