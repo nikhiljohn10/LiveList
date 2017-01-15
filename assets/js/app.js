@@ -41,7 +41,6 @@ liveListApp.controller('productCtrl', ['$scope', 'ProductService', 'CategoryServ
   $scope.addProduct = function(isValid) {
     if (isValid) {
       ProductService.addProduct($scope.formData).then(function(response) {
-        console.log($scope.formData);
         $scope.products.push({
           id: response.data.id,
           name: $scope.formData.name,
@@ -73,15 +72,6 @@ liveListApp.controller('productCtrl', ['$scope', 'ProductService', 'CategoryServ
       $scope.products.splice(index, 1);
       $scope.products.splice(index, 0, response.data);
     });
-    // var newPrice = parseFloat(prompt("Enter new price:"));
-    // if (!newPrice) alert("Error: Invalid amount.");
-    // else {
-    //   data.currentPrice = newPrice;
-    //   ProductService.updatePrice(pid, newPrice).then(function(response) {
-    //     $scope.products.splice(index, 1);
-    //     $scope.products.splice(index, 0, data);
-    //   });
-    // }
   };
   $scope.removeProduct = function(cid) {
     var index = $scope.products.findIndex(function(e) {
