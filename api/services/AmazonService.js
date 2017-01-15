@@ -6,11 +6,9 @@ module.exports = {
         url: link,
         done: function(err, window) {
           var $ = require("jquery")(window);
-          if ($('#priceblock_ourprice').text()) {
-            resolve(parseFloat($('#priceblock_ourprice').text().trim().replace(/,/g, '')));
-          } else {
-            resolve(parseFloat($('#priceblock_ourprice').textContent.trim().replace(/,/g, '')));
-          }
+          var price = $('#priceblock_ourprice').text().trim().replace(/,/g, '');
+          if (!price) price = $('#priceblock_saleprice').text().trim().replace(/,/g, '');
+          resolve(parseFloat(price));
           window.close();
         }
       });
