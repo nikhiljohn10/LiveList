@@ -70,7 +70,7 @@
             <td>{{$index+1}}</td>
             <td><a href="{{x.link}}" target="blank">{{x.name}}</a> <img ng-if="x.ff" src="images/aff.png" alt="(FF)"></td>
             <td>{{x.category | uppercase }}</td>
-            <td>{{x.currentPrice | currency }}</td>
+            <td>{{x.currentPrice | currency : "" : 2 }}</td>
             <td>{{x.updatedAt | date }}</td>
             <td class="textcenter">
               <input class="icon" type="button" ng-click='updatePrice(x.id);' value="+" title="Update price" />
