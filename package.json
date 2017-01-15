@@ -1,9 +1,9 @@
 {
   "name": "LiveList",
   "private": true,
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "a Sails application to list amazon products",
-  "keywords": ["sails","amazon","list"],
+  "keywords": ["sails", "amazon", "list"],
   "dependencies": {
     "ejs": "2.3.4",
     "grunt": "1.0.1",

@@ -1,6 +1,6 @@
 # [LiveList](https://ll.nikz.in)
 
-a [Sails](http://sailsjs.org) application to list amazon produst prices
+a [Sails](http://sailsjs.org) application to list amazon product prices
 
 ###How to run the app in a unix based system:
 
@@ -28,3 +28,9 @@ module.exports = {
 ```
 
 Start the app in dev mode once.In `config/models.js`, set `migrate: 'safe'` and then we can start app in production mode.
+
+### TODO
+
+- (Graph plotting)[https://github.com/nikhiljohn10/LiveList/projects/1]
+- Price Analyser
+- Multiuser Interface
