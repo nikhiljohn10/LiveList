@@ -67,10 +67,12 @@ liveListApp.controller('productCtrl', ['$scope', 'ProductService', 'CategoryServ
     var index = $scope.products.findIndex(function(e) {
       return e.id == pid;
     });
+    $scope.loading = true;
     var data = $scope.products[index];
     ProductService.updatePrice(pid).then(function(response) {
       $scope.products.splice(index, 1);
       $scope.products.splice(index, 0, response.data);
+      $scope.loading = false;
     });
   };
   $scope.removeProduct = function(cid) {

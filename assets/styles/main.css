@@ -112,3 +112,21 @@
 .fulfilled:focus + label{
   outline: 1px solid #ddd;
 }
+
+.loader{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+    background-color: rgba(255,255,255,0.6);
+}
+
+.loader .l-image{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+    background: url('../images/loader.gif') no-repeat center center;
+}
