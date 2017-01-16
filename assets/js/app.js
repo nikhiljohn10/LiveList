@@ -33,6 +33,7 @@ liveListApp.controller('productCtrl', ['$scope', 'ProductService', 'CategoryServ
   $scope.categories = [];
   $scope.products = [];
   $scope.loading = false;
+  $scope.linkRegex = /^((?:http|ftp)s?:\/\/)(www\.)?(amazon|amzn)\.(in|com)\//i;
   CategoryService.getCategories().then(function(response) {
     $scope.categories = response;
   });
