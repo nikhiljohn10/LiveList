@@ -58,6 +58,7 @@ module.exports = {
               amount: currentPrice
             }).exec(function(err1, resp1) {
               if (err1) return res.serverError(err1);
+              data.updatedAt = resp1.updatedAt;
               return res.json(data);
             });
           });
